@@ -99,6 +99,7 @@
     /products?categoryId=1
     /products?subCategoryId=1
     /products?subCategoryId=1&model=samsung
+    
     /products?model=samsung
     /products/1
 
