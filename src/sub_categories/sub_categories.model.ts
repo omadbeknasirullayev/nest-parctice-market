@@ -1,5 +1,6 @@
-import { Model, Table, Column, DataType, ForeignKey, BelongsTo } from "sequelize-typescript";
+import { Model, Table, Column, DataType, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
 import { Categories } from "src/categories/categories.model";
+import { Products } from "src/products/products.model";
 
 interface subCategoriesCreateAttr {
     sub_category_name: string
@@ -27,7 +28,11 @@ export class SubCategories extends Model <SubCategories, subCategoriesCreateAttr
         allowNull: false
     })
     sub_category_name: string
-
+    
+    @HasMany(() => Products)
+    products: Products[]
+    
     @BelongsTo(() => Categories) 
     categories: Categories
+
 }
