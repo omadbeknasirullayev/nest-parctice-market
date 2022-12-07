@@ -19,7 +19,8 @@ export class Categories extends Model <Categories, CategoriesCreationAttrs>  {
 
     @Column({
         type: DataType.STRING,
-        allowNull: false
+        unique: true,
+        allowNull: false,
     })
     category_name: string
 

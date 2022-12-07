@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Options } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Op, where } from 'sequelize';
+import { Op } from 'sequelize';
 import { CreateProductsDto, UpdateProductsDto } from './dto';
 import { Products } from './products.model';
 
@@ -18,8 +18,13 @@ export class ProductsService {
         return products
     }
 
-    async getBYValues(values: CreateProductsDto) {
-        const products = await this.productsrepository.findAll()
+    async getBYValues(values: UpdateProductsDto) {
+        console.log(values)
+        if (values['category_id']) {
+            // const products = await 
+        }
+        const products = await this.productsrepository.findAll({where: {...values}, include: {all: true}})
+        // console.log(products)
         return products
-    }
+    }  
 }

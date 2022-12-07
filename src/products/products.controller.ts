@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { UpdateCategoriesDto } from 'src/categories/dto';
 import { CreateProductsDto } from './dto';
 import { ProductsService } from './products.service';
 
@@ -12,8 +13,8 @@ export class ProductsController {
     }
 
     @Get()
-    getByValues(@Query() values: CreateProductsDto) {
-        console.log(values)
+    getByValues(@Query() values: UpdateCategoriesDto) {
+        // console.log(values)
         return this.productService.getBYValues(values)
     }
 }

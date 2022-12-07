@@ -1,6 +1,4 @@
-import { extname } from "path"
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript"
-import { Col } from "sequelize/types/utils"
 import { SubCategories } from "src/sub_categories/sub_categories.model"
 
 interface CreateProductsAttr {
