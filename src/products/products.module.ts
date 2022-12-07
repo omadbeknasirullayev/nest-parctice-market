@@ -9,7 +9,8 @@ import { ProductsService } from './products.service';
 @Module({
   imports: [
     forwardRef(() => SubCategories),
-    SequelizeModule.forFeature([Products, SubCategories])
+    SequelizeModule.forFeature([Products, SubCategories]),
+    SubCategoriesModule
   ],
   controllers: [ProductsController],
   providers: [ProductsService],

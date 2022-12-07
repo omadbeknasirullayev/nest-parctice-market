@@ -14,7 +14,6 @@ export class ProductsController {
 
     @Get()
     getByValues(@Query() values: UpdateCategoriesDto) {
-        // console.log(values)
         return this.productService.getBYValues(values)
     }
 }
