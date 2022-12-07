@@ -40,12 +40,12 @@ export class CategoriesService {
     const category = await this.categoriesRepository.findByPk(id)
     if (!category) 
     throw new HttpException('bunday foydalanuvchi mavjud emas', HttpStatus.NOT_FOUND)
-    const updated = this.categoriesRepository.update(updatecategoriesdto, {where: {id}})
+    const updated = this.categoriesRepository.update(updatecategoriesdto, {where: { category_id: +id}})
     return {message: "Muvaffaqiyatli o'zgartirildi"}
   }
 
   async deleteById(id: number) {
-    const deleted = await this.categoriesRepository.destroy({where: {id}})
+    const deleted = await this.categoriesRepository.destroy({where: {category_id: +id}})
     if (!deleted) 
         throw new HttpException('Bunday categoriya topildami', HttpStatus.NOT_FOUND)
     return {message: "Muvaffaqiyatli o'chirildi"}

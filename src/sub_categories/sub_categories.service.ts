@@ -9,7 +9,7 @@ export class SubCategoriesService {
     @InjectModel(SubCategories)
     private subCategoriesRepository: typeof SubCategories,
   ) {}
-    
+
   async create(createSubCategoriesDto: CreateSubCategoriesDto) {
     const newSubCategory = await this.subCategoriesRepository.create(
       createSubCategoriesDto,
@@ -65,14 +65,14 @@ export class SubCategoriesService {
         HttpStatus.NOT_FOUND,
       );
     await this.subCategoriesRepository.update(updateSubCategoriesDto, {
-      where: { id },
+      where: { sub_category_id: +id },
     });
     return { message: "Muvaffaqiyatli o'zgartirildi" };
   }
 
   async deleteSubCategories(id: number) {
     const deleted = await this.subCategoriesRepository.destroy({
-      where: { id },
+      where: { sub_category_id: +id },
     });
     if (!deleted)
       throw new HttpException(

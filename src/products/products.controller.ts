@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { UpdateCategoriesDto } from 'src/categories/dto';
 import { CreateProductsDto } from './dto';
 import { ProductsService } from './products.service';
@@ -15,5 +15,15 @@ export class ProductsController {
     @Get()
     getByValues(@Query() values: UpdateCategoriesDto) {
         return this.productService.getBYValues(values)
+    }
+
+    @Put(':id')
+    update(@Param('id') id: number, updatecategoriesdto: UpdateCategoriesDto) {
+        return this.productService.update(id, updatecategoriesdto)
+    }
+
+    @Delete(':id')
+    deleteProducts(@Param('id') id: number) {
+        return this.productService.deleteProducts(id)
     }
 }
